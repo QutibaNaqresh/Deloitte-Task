@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        tools:context=".ui.non_user_screen.fragments.RegisterFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_full_name"
+            app:boxCornerRadiusBottomEnd="3dp"
+            app:boxCornerRadiusBottomStart="3dp"
+            app:boxCornerRadiusTopEnd="3dp"
+            app:boxCornerRadiusTopStart="3dp">
+
+            <EditText
+                android:id="@+id/full_name"
+                android:maxLines="1"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_email"
+            app:boxCornerRadiusBottomEnd="3dp"
+            app:boxCornerRadiusBottomStart="3dp"
+            app:boxCornerRadiusTopEnd="3dp"
+            app:boxCornerRadiusTopStart="3dp">
+
+            <EditText
+                android:id="@+id/email"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_national_id"
+            app:boxCornerRadiusBottomEnd="3dp"
+            app:boxCornerRadiusBottomStart="3dp"
+            app:boxCornerRadiusTopEnd="3dp"
+            app:boxCornerRadiusTopStart="3dp">
+
+            <EditText
+                android:id="@+id/national_id"
+                android:maxLines="1"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_phone_number"
+            app:boxCornerRadiusBottomEnd="3dp"
+            app:boxCornerRadiusBottomStart="3dp"
+            app:boxCornerRadiusTopEnd="3dp"
+            app:boxCornerRadiusTopStart="3dp">
+
+            <EditText
+                android:id="@+id/phone_number"
+                android:maxLines="1"
+                android:inputType="phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_date_of_birth"
+            app:boxCornerRadiusBottomEnd="3dp"
+            app:boxCornerRadiusBottomStart="3dp"
+            app:boxCornerRadiusTopEnd="3dp"
+            app:boxCornerRadiusTopStart="3dp">
+
+            <EditText
+                android:id="@+id/date_of_birth"
+                android:maxLines="1"
+                android:inputType="date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_password"
+            app:boxCornerRadiusBottomEnd="3dp"
+            app:boxCornerRadiusBottomStart="3dp"
+            app:boxCornerRadiusTopEnd="3dp"
+            app:boxCornerRadiusTopStart="3dp">
+
+            <EditText
+                android:id="@+id/password"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/txt_register"
+            android:textAllCaps="false"
+            app:cornerRadius="3dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>
