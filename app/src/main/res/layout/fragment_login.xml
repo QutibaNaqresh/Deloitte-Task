@@ -2,21 +2,32 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <data>
+        <variable
+            name="viewModel"
+            type="com.deloitte.deloittetask.viewmodels.NonUserViewModel" />
+    </data>
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="16dp"
         tools:context=".ui.non_user_screen.fragments.LoginFragment">
-
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingHorizontal="16dp"
+    android:orientation="vertical">
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/txt_full_name"
-           app:boxCornerRadiusBottomEnd="3dp"
+            error="@{viewModel.useNameError.errorMessage}"
+            app:boxCornerRadiusBottomEnd="3dp"
             app:boxCornerRadiusBottomStart="3dp"
             app:boxCornerRadiusTopEnd="3dp"
             app:boxCornerRadiusTopStart="3dp">
@@ -26,6 +37,7 @@
                 android:id="@+id/full_name"
                 android:inputType="textPersonName"
                 android:layout_width="match_parent"
+                android:text="@={viewModel.userName}"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -33,9 +45,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
             android:hint="@string/txt_password"
             app:boxCornerRadiusBottomEnd="3dp"
             app:boxCornerRadiusBottomStart="3dp"
+            error="@{viewModel.passwordError.errorMessage}"
             app:boxCornerRadiusTopEnd="3dp"
             app:boxCornerRadiusTopStart="3dp">
 
@@ -43,6 +57,7 @@
                 android:maxLines="1"
                 android:inputType="textPassword"
                 android:id="@+id/password"
+                android:text="@={viewModel.password}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -52,7 +67,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="@string/txt_login"
+            android:onClick="@{()->viewModel.verifyLogin()}"
             android:textAllCaps="false"
             app:cornerRadius="3dp" />
+</androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

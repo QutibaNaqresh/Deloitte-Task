@@ -3,12 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.deloitte.deloittetask.viewmodels.UserViewModel" />
+    </data>
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/drwable_profile_header"
         android:orientation="vertical"
         android:weightSum="3"
-        android:background="@drawable/drwable_profile_header"
         tools:context=".ui.user_screen.fragments.MoreFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/default_margin"
-                    android:text="Full Name"
+                    android:text="@{viewModel.userData.fullName}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_sub_title"
                     android:textStyle="bold" />
@@ -51,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/default_margin"
-                    android:text="name@email.com"
+                    android:text="@{viewModel.userData.email}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_description_default" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -75,7 +82,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+666457788"
+                android:text="@{viewModel.userData.nationalId}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_description_default" />
 
@@ -90,7 +97,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="4564654645466"
+                android:text="@{viewModel.userData.phoneNumber}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_description_default" />
 
@@ -105,7 +112,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="17-2-1997"
+                android:text="@{viewModel.userData.dateOfBirth}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_description_default" />
 
@@ -145,6 +152,20 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/default_margin"
                 android:gravity="center_vertical"
+                android:onClick="@{()-> viewModel.signOut()}"
+                android:text="@string/tx_locale"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_description_default"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_language" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/default_margin"
+                android:onClick="@{()-> viewModel.signOut()}"
                 android:text="@string/txt_logout"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_description_default"
