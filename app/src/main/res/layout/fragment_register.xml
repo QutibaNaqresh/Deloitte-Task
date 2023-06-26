@@ -115,7 +115,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_margin"
-
             android:hint="@string/txt_date_of_birth"
             error="@{viewModel.birthOfDateError.errorMessage}"
             app:boxCornerRadiusBottomEnd="3dp"
@@ -128,7 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@={viewModel.birthOfDate}"
-                android:inputType="datetime"
+                android:inputType="date"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 

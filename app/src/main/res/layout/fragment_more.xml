@@ -26,12 +26,12 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/article_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:maxWidth="60dp"
                 android:maxHeight="60dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/ic_person"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,6 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layoutDirection="locale"
                 app:layout_constraintBottom_toBottomOf="@id/article_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/article_image"
@@ -49,8 +50,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/default_margin"
+                    android:textDirection="locale"
                     android:text="@{viewModel.userData.fullName}"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/text_sub_title"
                     android:textStyle="bold" />
 
@@ -58,8 +60,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/default_margin"
+                    android:textDirection="locale"
                     android:text="@{viewModel.userData.email}"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/text_description_default" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -70,6 +73,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:orientation="vertical"
+            android:layoutDirection="locale"
             android:paddingHorizontal="@dimen/default_page_padding">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -82,6 +86,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textDirection="locale"
                 android:text="@{viewModel.userData.nationalId}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_description_default" />
@@ -97,6 +102,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textDirection="locale"
                 android:text="@{viewModel.userData.phoneNumber}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_description_default" />
@@ -112,6 +118,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textDirection="locale"
                 android:text="@{viewModel.userData.dateOfBirth}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_description_default" />
@@ -146,18 +153,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/default_page_padding">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:onClick="@{()-> viewModel.signOut()}"
-                android:text="@string/tx_locale"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_description_default"
-                android:textStyle="bold"
-                app:drawableStartCompat="@drawable/ic_language" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"

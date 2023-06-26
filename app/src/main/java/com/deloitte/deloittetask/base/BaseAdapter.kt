@@ -4,12 +4,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseAdapter<T : Any> constructor(
-    protected var listItem: MutableList<T> = mutableListOf<T>()
+    protected var listItem: ArrayList<T> = arrayListOf<T>()
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
 
-    fun setItems(listItems: MutableList<T>) {
+    fun setItems(listItems: ArrayList<T>) {
         this.listItem.clear()
         this.listItem.addAll(0, listItems)
         notifyDataSetChanged()
@@ -22,12 +22,7 @@ abstract class BaseAdapter<T : Any> constructor(
 
     }
     fun getLastElement() = listItem[listItem.size-1]
-    fun updateLastElement(newElement: T){
-        val lastIndex = listItem.size-1
-//        listItem.add(lastIndex,newElement)
-        notifyItemChanged(lastIndex)
-    }
-    fun clearItems() {
+   fun clearItems() {
         this.listItem.clear()
         notifyDataSetChanged()
     }

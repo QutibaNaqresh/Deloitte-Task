@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.deloitte.deloittetask.repository.models.User
+import com.deloitte.deloittetask.repository.local_data_source.models.User
 import kotlinx.coroutines.flow.Flow
 
 /*
@@ -30,7 +30,7 @@ interface UserDao {
    @Query(
        "SELECT * FROM users_table WHERE uId LIKE :uid"
    )
-   suspend fun getUser(uid:Long):User?
+   suspend fun getUser(uid:Long): User?
     @Delete
     fun deleteUser(user: User)
 

@@ -10,13 +10,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/drwable_profile_header"
         tools:context=".ui.non_user_screen.NonUserActivity">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tap_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
             app:layout_constraintStart_toStartOf="parent"
+            android:background="@android:color/transparent"
+            app:tabSelectedTextColor="@color/white"
+            app:tabIndicatorColor="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:tabMinWidth="100dp"
              app:tabTextAppearance="@style/MyCustomTabText"/>

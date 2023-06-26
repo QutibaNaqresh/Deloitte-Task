@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.deloitte.deloittetask.base.BaseViewModel
 import com.deloitte.deloittetask.common.ValidationHelper
 import com.deloitte.deloittetask.repository.UsersRepository
-import com.deloitte.deloittetask.repository.models.User
+import com.deloitte.deloittetask.repository.local_data_source.models.User
 import com.deloitte.deloittetask.ui.non_user_screen.NonUserNavigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

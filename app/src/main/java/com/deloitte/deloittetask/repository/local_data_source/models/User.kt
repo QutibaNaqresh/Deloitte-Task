@@ -1,4 +1,4 @@
-package com.deloitte.deloittetask.repository.models
+package com.deloitte.deloittetask.repository.local_data_source.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -13,4 +13,7 @@ data class User(
     @ColumnInfo("phone_num")     val phoneNumber : String,
     @ColumnInfo("date_of_birth") val DateOfBirth : String,
     @ColumnInfo("password")      val password    : String,
-)
+
+
+
+    )

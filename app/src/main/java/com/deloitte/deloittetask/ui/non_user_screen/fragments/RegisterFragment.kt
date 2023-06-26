@@ -10,15 +10,17 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.deloitte.deloittetask.BR
 import com.deloitte.deloittetask.R
+import com.deloitte.deloittetask.common.DateHelper
 import com.deloitte.deloittetask.databinding.FragmentRegisterBinding
 import com.deloitte.deloittetask.viewmodels.NonUserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RegisterFragment : Fragment() {
+class RegisterFragment : Fragment(){
 
     private lateinit var binding: FragmentRegisterBinding
     private val sharedViewModel by activityViewModels<NonUserViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,8 +38,18 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.setVariable(BR.viewModel,sharedViewModel)
+
+        initialize()
+        setListeners()
+    }
+
+    private fun initialize() {
+        binding.setVariable(BR.viewModel, sharedViewModel)
         binding.lifecycleOwner = viewLifecycleOwner
+    }
+
+    private fun setListeners() {
+
     }
 
     companion object {
@@ -59,4 +71,6 @@ class RegisterFragment : Fragment() {
 
             }
     }
+
+
 }

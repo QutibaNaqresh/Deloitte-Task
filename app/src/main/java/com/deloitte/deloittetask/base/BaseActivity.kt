@@ -3,7 +3,7 @@ package com.deloitte.deloittetask.base
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.widget.ArrayAdapter
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import com.deloitte.deloittetask.R
+import com.deloitte.deloittetask.common.Constants
+import com.deloitte.deloittetask.common.LocaleHelper
 import com.deloitte.deloittetask.ui.non_user_screen.NonUserActivity
 import com.deloitte.deloittetask.ui.splash_screen.SplashActivity
 import com.deloitte.deloittetask.ui.user_screen.UserActivity
@@ -21,7 +23,6 @@ abstract class BaseActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompatAct
 
     @LayoutRes
     abstract fun getLayoutRes(): Int
-
 //    @Inject
 //    lateinit var locationHelper: LocationHelper
 //    lateinit var networkConnectionMonitor: NetworkMonitorHelper
@@ -31,6 +32,7 @@ abstract class BaseActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompatAct
     override fun onCreate(savedInstanceState: Bundle?) {
 //        setTheme(R.style.Theme_WeTaxiRider)
 //        setLanguage(Locale.getDefault().displayLanguage)
+        setLanguage(Locale.getDefault().language)
         super.onCreate(savedInstanceState)
         initialize()
 
@@ -95,6 +97,7 @@ abstract class BaseActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompatAct
             }
         }*/
 
+
     override fun onDestroy() {
         super.onDestroy()
 //        desmissNetworkDialog()
@@ -132,27 +135,15 @@ abstract class BaseActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompatAct
         }
     }
 
-    override fun onSignedOut() {
-
+    override fun restartApp() {
         this@BaseActivity.finish()
         val intent = Intent(this@BaseActivity, SplashActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
-
     }
 
-
-    fun setLanguage(languageCode: String) {
-
-        /*  when (languageCode) {
-              Constants.Languages.ENGLISH -> {
-                  LocaleHelper.setLocale(window, "en")
-              }
-              Constants.Languages.ARABIC -> {
-                  LocaleHelper.setLocale(window, "ar")
-
-              }
-          }*/
+    override fun setLanguage(language: String) {
+        LocaleHelper.setLocale(window, language)
 
     }
 
@@ -174,6 +165,9 @@ abstract class BaseActivity<VM : ViewModel, DB : ViewDataBinding> : AppCompatAct
         animatePage(true)
         startActivity(intent)
     }
+
+
+
 
     abstract fun getViewModel(): VM
     abstract fun getBindingVariable(): Int

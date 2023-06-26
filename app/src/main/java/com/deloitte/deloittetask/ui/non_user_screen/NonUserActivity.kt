@@ -29,8 +29,14 @@ class NonUserActivity : BaseActivity<NonUserViewModel, ActivityNonUserBinding>()
         viewmodel.setNav(this)
         supportActionBar?.title = getString(R.string.txt_welcome)
         viewPagerAdapter = ViewPagerAdapter(this)
-        viewPagerAdapter.addFragment(LoginFragment.newInstance(), LoginFragment.TAG)
-        viewPagerAdapter.addFragment(RegisterFragment.newInstance(), RegisterFragment.TAG)
+        viewPagerAdapter.addFragment(LoginFragment.newInstance(), getString(R.string.txt_login))
+        viewPagerAdapter.addFragment(RegisterFragment.newInstance(), getString(R.string.txt_register))
+        binding.viewPager.isUserInputEnabled = false
+        /*
+        * this line is to remove the lagging in the viewpager when rendering the fragments
+        * if you have a complex fragment UI do not apply it
+        * */
+        binding.viewPager.offscreenPageLimit = viewPagerAdapter.itemCount
         binding.viewPager.adapter = viewPagerAdapter
         TabLayoutMediator(binding.tapLayout, binding.viewPager) { tab, position ->
 
@@ -38,7 +44,6 @@ class NonUserActivity : BaseActivity<NonUserViewModel, ActivityNonUserBinding>()
         }.attach()
 
     }
-
     override fun getLayoutRes(): Int = R.layout.activity_non_user
 
     override fun getViewModel(): NonUserViewModel = viewmodel
